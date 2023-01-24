@@ -60,6 +60,8 @@ module.exports.signup_post = async (req, res) => {
     res.cookie("jwt", token, {
       httpOnly: true,
       maxAge: maxAge * 1000,
+      sameSite: "none",
+      secure: true,
     });
 
     res
@@ -86,6 +88,8 @@ module.exports.login_post = async (req, res) => {
     res.cookie("jwt", token, {
       httpOnly: true,
       maxAge: maxAge * 1000,
+      sameSite: "none",
+      secure: true,
     });
 
     res
