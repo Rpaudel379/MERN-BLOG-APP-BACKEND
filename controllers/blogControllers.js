@@ -33,7 +33,7 @@ const handleErrors = (err) => {
 
 module.exports.blog_get = async (req, res) => {
   try {
-    const blog = await Blog.find();
+    const blog = await Blog.find().sort({ updatedAt: -1 });
     res.status(200).json(blog);
   } catch (err) {
     console.log(err, "catch error");
@@ -130,7 +130,7 @@ module.exports.userBlog_post = async (req, res) => {
 
   if (res.user._id == userId) {
     try {
-      const userBlog = await Blog.find({ userId });
+      const userBlog = await Blog.find({ userId }).sort({ updatedAt: -1 });
       res.status(201).json(userBlog);
     } catch (err) {
       console.log(err);
