@@ -6,7 +6,7 @@ const blogSchema = new mongoose.Schema(
       type: String,
       required: [true, "please add title"],
       minlength: [3, "minlength is 3 characters"],
-      maxlength: [50, "maxlength is 80 characters"],
+      maxlength: [80, "maxlength is 80 characters"],
     },
     body: {
       type: String,
